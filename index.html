@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História de Nós Dois</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdf2f5;
+            color: #4a1a2c;
+            overflow-x: hidden;
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .glow-button {
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff69b4, 0 0 20px #ff69b4;
+            }
+            to {
+                box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff69b4, 0 0 40px #ff69b4;
+            }
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ff69b4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .card-animation {
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .card-animation.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #ff69b4;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ff69b4; }
+        }
+        
+        .hidden-letter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+        
+        .hidden-letter.show {
+            transform: scale(1);
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <div class="content min-h-screen flex flex-col">
+        <!-- Header/Navigation -->
+        <header class="py-6 px-4 md:px-10 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold dancing-font">História de Nós Dois</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#inicio" class="hover:text-pink-600 transition">Início</a>
+                <a href="#comeco" class="hover:text-pink-600 transition">O Começo</a>
+                <a href="#caminho" class="hover:text-pink-600 transition">O Caminho</a>
+                <a href="#poesias" class="hover:text-pink-600 transition">Poesias</a>
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <!-- Hero Section -->
+            <section id="inicio" class="flex flex-col items-center justify-center py-20 px-4 text-center min-h-screen">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 dancing-font" id="romantic-phrase">Dois corações, uma só história</h2>
+                <p class="text-xl md:text-2xl mb-10 max-w-2xl">Uma jornada de amor escrita pelas estrelas</p>
+                <a href="#comeco" class="glow-button bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                    Descobrir nossa história
+                </a>
+            </section>
+            
+            <!-- O Começo Section -->
+            <section id="comeco" class="py-20 px-4 md:px-10 bg-white bg-opacity-70">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center dancing-font">O Começo</h2>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- First Meeting -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <div class="text-4xl mb-4">🌅</div>
+                            <h3 class="text-xl font-bold mb-3">Primeiro Encontro</h3>
+                            <p class="text-gray-700">Como raios de sol que se encontram no horizonte, nossos olhares se cruzaram e o mundo parou por um instante.</p>
+                        </div>
+                        
+                        <!-- First Conversation -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <div class="text-4xl mb-4">💬</div>
+                            <h3 class="text-xl font-bold mb-3">Primeira Conversa</h3>
+                            <p class="text-gray-700">Palavras que fluíam como um rio suave, descobrindo em cada frase uma nova razão para sorrir.</p>
+                        </div>
+                        
+                        <!-- First Love -->
+                        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                            <div class="text-4xl mb-4">💌</div>
+                            <h3 class="text-xl font-bold mb-3">Primeiro "Eu Te Amo"</h3>
+                            <p class="text-gray-700">Três pequenas palavras que carregavam um universo de sentimentos, selando o destino de nossos corações.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16 bg-white bg-opacity-90 p-8 rounded-lg shadow-md">
+                        <p class="text-lg leading-relaxed">
+                            Era uma vez, em um mundo não muito distante, dois corações que batiam em sincronia sem nunca terem se encontrado. 
+                            O destino, como um artista paciente, foi tecendo os fios invisíveis que nos uniriam. 
+                            Quando finalmente nossos caminhos se cruzaram, foi como se o universo sussurrasse: "Eis o que tanto procurei".
+                        </p>
+                        <p class="text-lg leading-relaxed mt-4">
+                            O primeiro sorriso, a primeira risada compartilhada, o primeiro toque que fez o tempo desacelerar - 
+                            cada momento foi uma página em branco sendo preenchida com as cores mais vibrantes do amor.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- O Caminho Section -->
+            <section id="caminho" class="py-20 px-4 md:px-10">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center dancing-font">O Caminho</h2>
+                    
+                    <div class="timeline-container">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot">1</div>
+                            <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md card-animation">
+                                <h3 class="text-xl font-bold mb-2">Nosso Primeiro Ano</h3>
+                                <p class="text-gray-700">365 dias de descobertas, risadas e aprendizados. Cada estação trouxe novas cores ao nosso amor, como folhas que mudam mas nunca caem.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot">2</div>
+                            <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md card-animation">
+                                <h3 class="text-xl font-bold mb-2">A Primeira Viagem</h3>
+                                <p class="text-gray-700">Malas prontas, corações ansiosos. Descobrimos que não importa o destino quando estamos juntos - cada lugar se torna especial.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot">3</div>
+                            <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md card-animation">
+                                <h3 class="text-xl font-bold mb-2">Superando Desafios</h3>
+                                <p class="text-gray-700">Como ondas que batem na rocha, os desafios vieram, mas nosso amor permaneceu firme, mostrando que juntos somos mais fortes.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot">4</div>
+                            <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md card-animation">
+                                <h3 class="text-xl font-bold mb-2">Sonhos Compartilhados</h3>
+                                <p class="text-gray-700">Planos que antes eram individuais agora se entrelaçam, criando um futuro pintado com os pincéis de nossos corações.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Poesias Section -->
+            <section id="poesias" class="py-20 px-4 md:px-10 bg-white bg-opacity-70">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center dancing-font">Palavras do Coração</h2>
+                    
+                    <div class="space-y-12">
+                        <!-- Poem 1 -->
+                        <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-bold mb-4 dancing-font">Teu Olhar</h3>
+                            <div class="typewriter">
+                                <p class="text-lg italic leading-relaxed">
+                                    Nos teus olhos encontrei o mar,<br>
+                                    Onde me perco e quero ficar.<br>
+                                    Ondas de amor, tão profundas e claras,<br>
+                                    Que me envolvem em doces amarras.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Poem 2 -->
+                        <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-bold mb-4 dancing-font">Eternidade em Nós</h3>
+                            <div class="typewriter" style="animation-delay: 4s;">
+                                <p class="text-lg italic leading-relaxed">
+                                    Se o tempo é uma ilusão,<br>
+                                    Então nosso amor é a verdade.<br>
+                                    Pois em teus braços encontrei<br>
+                                    Minha eternidade.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Poem 3 -->
+                        <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-bold mb-4 dancing-font">Cada Dia Contigo</h3>
+                            <div class="typewriter" style="animation-delay: 8s;">
+                                <p class="text-lg italic leading-relaxed">
+                                    Não são só os grandes momentos,<br>
+                                    Mas os pequenos também.<br>
+                                    O café da manhã em silêncio,<br>
+                                    O teu sorriso além.<br>
+                                    São esses instantes simples<br>
+                                    Que guardo no coração,<br>
+                                    Como pérolas preciosas<br>
+                                    De nossa doce união.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Love Counter -->
+            <section class="py-16 px-4 text-center bg-gradient-to-r from-pink-400 to-pink-600 text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 dancing-font">Nosso Contador de Amor</h2>
+                <div class="text-5xl md:text-6xl font-bold mb-4" id="love-counter">1263</div>
+                <p class="text-xl">dias de amor e felicidade</p>
+                <p class="mt-4">E cada dia que passa é mais especial que o anterior</p>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="py-8 px-4 text-center bg-pink-900 text-white">
+            <p>Feito com ❤️ para eternizar nossa história</p>
+            <p class="mt-2">© <span id="year"></span> História de Nós Dois - Todos os direitos reservados</p>
+        </footer>
+    </div>
+    
+    <!-- Hidden Letter -->
+    <div class="hidden-letter" id="hidden-letter">
+        <div class="flex justify-between items-start mb-4">
+            <h3 class="text-xl font-bold dancing-font">Para Você</h3>
+            <button onclick="closeLetter()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <p class="text-sm">
+            Minha querida,<br><br>
+            Se algum dia duvidar do meu amor, lembre-se deste site que criei apenas para celebrar o que temos. Cada linha de código carrega uma lembrança, cada animação representa um sorriso seu que ilumina meus dias.<br><br>
+            Obrigado por ser minha história, meu presente e meu futuro.<br><br>
+            Com todo meu amor,<br>
+            <span class="dancing-font font-bold">Sempre teu</span>
+        </p>
+    </div>
+    
+    <!-- Secret Heart -->
+    <div class="fixed bottom-6 right-6 cursor-pointer heart-beat" onclick="showLetter()">
+        <div class="bg-pink-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+            <i class="fas fa-heart text-xl"></i>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ff69b4"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffb6c1",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Set current year
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Random romantic phrases
+            const phrases = [
+                "Dois corações, uma só história",
+                "Amor escrito nas estrelas",
+                "Nossa história, nosso eterno",
+                "Juntos desde o primeiro olhar",
+                "O amor nos uniu para sempre"
+            ];
+            document.getElementById('romantic-phrase').textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            
+            // Animate timeline cards when scrolled to
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelector('.card-animation').classList.add('show');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Update love counter daily
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - 1263); // 1263 days ago
+            updateLoveCounter(startDate);
+            
+            setInterval(() => {
+                updateLoveCounter(startDate);
+            }, 86400000); // Update once per day
+        });
+        
+        function updateLoveCounter(startDate) {
+            const now = new Date();
+            const diffTime = Math.abs(now - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('love-counter').textContent = diffDays;
+        }
+        
+        function showLetter() {
+            document.getElementById('hidden-letter').classList.add('show');
+        }
+        
+        function closeLetter() {
+            document.getElementById('hidden-letter').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
